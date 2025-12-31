@@ -13,6 +13,7 @@ export default function ContactForm() {
   const [formData, setFormData] = useState({
     nombre: "",
     empresa: "",
+    email: "",
     whatsapp: "",
     servicio: "",
   })
@@ -35,7 +36,7 @@ export default function ContactForm() {
 
       if (response.ok) {
         setSubmitStatus("success")
-        setFormData({ nombre: "", empresa: "", whatsapp: "", servicio: "" })
+        setFormData({ nombre: "", empresa: "", email: "", whatsapp: "", servicio: "" })
       } else {
         setSubmitStatus("error")
       }
@@ -83,6 +84,21 @@ export default function ContactForm() {
                 onChange={(e) => setFormData({ ...formData, empresa: e.target.value })}
                 className="bg-[#0a0a0a] border-[#262626] text-white focus:border-[#39ff14]"
                 placeholder="Nombre de tu empresa"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="email" className="text-gray-300">
+                Correo Electrónico
+              </Label>
+              <Input
+                id="email"
+                type="email"
+                required
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                className="bg-[#0a0a0a] border-[#262626] text-white focus:border-[#39ff14]"
+                placeholder="tu@email.com"
               />
             </div>
 

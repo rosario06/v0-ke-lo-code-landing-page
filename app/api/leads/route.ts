@@ -5,12 +5,12 @@ export async function POST(request: Request) {
     const data = await request.json()
 
     // Validate required fields
-    if (!data.nombre || !data.empresa || !data.whatsapp || !data.servicio) {
+    if (!data.nombre || !data.empresa || !data.email || !data.whatsapp || !data.servicio) {
       return NextResponse.json({ error: "Todos los campos son requeridos" }, { status: 400 })
     }
 
     // TODO: Replace with your actual n8n webhook URL
-    const n8nWebhookUrl = process.env.N8N_WEBHOOK_URL || "YOUR_N8N_WEBHOOK_URL_HERE"
+    const n8nWebhookUrl = process.env.N8N_WEBHOOK_URL || "https://n8n.kelocode.com/webhook-test/lead-contacto"
 
     // Send data to n8n webhook
     const n8nResponse = await fetch(n8nWebhookUrl, {
@@ -21,6 +21,7 @@ export async function POST(request: Request) {
       body: JSON.stringify({
         nombre: data.nombre,
         empresa: data.empresa,
+        email: data.email,
         whatsapp: data.whatsapp,
         servicio: data.servicio,
         timestamp: new Date().toISOString(),

@@ -14,8 +14,9 @@ export default function Navbar() {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="font-mono text-xl font-bold neon-text">
-            {">"} KeLoCode_
+          <Link href="/" className="flex flex-col">
+            <span className="font-mono text-xl font-bold neon-text">{">"} KeLoCode_</span>
+            <span className="font-sans text-xs italic text-gray-400 ml-4">Agencia de AI</span>
           </Link>
 
           {/* Navigation Links */}
