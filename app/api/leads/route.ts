@@ -9,7 +9,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Todos los campos son requeridos" }, { status: 400 })
     }
 
-    // TODO: Replace with your actual n8n webhook URL
+    // TODO: Replace with your actual n8n webhook URL America/Santo_Domingo
     const n8nWebhookUrl = process.env.N8N_WEBHOOK_URL || "https://n8n.kelocode.com/webhook/lead-contacto"
 
     // Send data to n8n webhook
@@ -30,8 +30,12 @@ export async function POST(request: Request) {
     })
 
     if (!n8nResponse.ok) {
-      console.error("Error from n8n:", await n8nResponse.text())
-      return NextResponse.json({ error: "Error conectando con n8n" }, { status: 500 })
+      const errorText = await n8nResponse.text()
+      console.error("Error from n8n:", errorText)
+      return NextResponse.json(
+        { error: `Error conectando con n8n: ${n8nResponse.status} ${n8nResponse.statusText} - ${errorText}` },
+        { status: 500 },
+      )
     }
 
     return NextResponse.json({
@@ -40,6 +44,9 @@ export async function POST(request: Request) {
     })
   } catch (error) {
     console.error("Error processing lead:", error)
-    return NextResponse.json({ error: "Error procesando la solicitud" }, { status: 500 })
+    return NextResponse.json(
+      { error: `Error procesando la solicitud: ${error instanceof Error ? error.message : String(error)}` },
+      { status: 500 },
+    )
   }
 }
