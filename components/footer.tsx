@@ -24,14 +24,14 @@ export default function Footer() {
               </li>
               <li className="font-mono">
                 <span className="text-[#39ff14]">$</span>{" "}
-                <a href="mailto:info@kelocode.com" className="hover:text-[#39ff14] transition-colors">
-                  info@kelocode.com
+                <a href="mailto:kelocode.ai@gmail.com" className="hover:text-[#39ff14] transition-colors">
+                  kelocode.ai@gmail.com
                 </a>
               </li>
               <li className="font-mono">
                 <span className="text-[#39ff14]">$</span>{" "}
-                <a href="tel:+1809000000" className="hover:text-[#39ff14] transition-colors">
-                  +1 (809) 000-0000
+                <a href="tel:+18094340554" className="hover:text-[#39ff14] transition-colors">
+                  +1 (809) 434-0554
                 </a>
               </li>
             </ul>
@@ -93,8 +93,7 @@ export default function Footer() {
         <div className="mt-8 border-t border-[#39ff14]/20 pt-8 text-center">
           <p className="font-mono text-sm text-gray-500">
             <span className="text-[#39ff14]">©</span> {new Date().getFullYear()} KeLoCode. Todos los derechos
-            reservados. <span className="text-[#39ff14]">|</span> Hecho con <span className="text-[#39ff14]">♥</span> en
-            República Dominicana
+            reservados. <span className="text-[#39ff14]">|</span> Desarrollador por Consultorio developers.com
           </p>
         </div>
       </div>
